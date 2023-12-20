@@ -10,7 +10,13 @@ class HelloTest extends TestCase
 {
     public function testHello()
     {
-        $this->get("/hello")
-            ->assertSeeText("Alsyam");
+        $this->get("/world")
+            ->assertSeeText("Laravel");
+    }
+
+    public function testWithoutRoute()
+    {
+        $this->get('hello.world', ['name' => 'al'])
+            ->assertSeeText('al');
     }
 }
